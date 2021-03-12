@@ -1,0 +1,71 @@
+// SIDEBAR
+
+.sidebar {
+
+  position: fixed;
+  height: 100%;
+
+  background-color: rgb(48, 48, 48);
+  width: $sidebar_width;
+  padding-top: $topnav_height;
+  color: white;
+  
+  overflow-y: scroll; // Let item inside scroll
+  overflow-x: hidden;
+
+  transition: margin-left .3s;
+  z-index: $sidebar_zindex; // Change 
+    
+  & .navbar-nav{
+
+    & .nav-item {      
+      color: white;
+      margin:4px;
+      margin-bottom:0px;
+      padding:0px;
+      padding-left: 10px;
+      border-radius: 8px;
+      font-size:13px;    
+    }
+
+    .nav-item:hover, 
+    .nav-item:active{
+      background-color: rgba(255, 255, 255, 0.043);
+    }
+
+    .active {
+      background-color: rgba(89, 89, 89, 0.79);
+      color: white;
+    }
+  
+    a {
+      color:white;    
+    }      
+  
+  }  
+
+  & section {
+    
+    padding:8px;
+    font-size: 10px;
+    margin-bottom: -8px;
+    color: rgb(177, 177, 177);
+
+  }
+
+  // LEFT positioning move the sidebar
+  @media (max-width: $md-breakpoint-width) {
+    left: $sidebar_width * -1 ;
+  }
+
+}
+
+.open {
+  left: 0;
+}
+
+
+.sidebar::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
