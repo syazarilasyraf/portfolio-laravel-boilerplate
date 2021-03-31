@@ -1,9 +1,9 @@
-<nav class="nav container max-w-4xl">
-    <div class="nav-list mx-auto flex flex-row justify-around items-center py-8 md:py-16 text-xs sm:text-sm md:text-base">
-        <a class="nav-item font-normal mx-2" href="/">Home</a>
-        <a class="nav-item font-normal mx-2" href="/about">About</a>
-        <a class="nav-item font-normal mx-2" href="/projects">Projects</a>
-        <a class="nav-item font-normal mx-2" href="/blog">Blog</a>
-        <a class="nav-item font-normal mx-2" href="/contact">Contact</a>
+<nav class="nav nav-container col-md-5">
+    <div class="d-flex nav-main">
+        <a class="nav-item nav-dis" href="/">Home</a>
+        <a class="nav-item nav-dis" href="/about">About</a>
+        <a class="nav-item nav-dis" href="/projects">Project</a>
+        <a class="nav-item nav-dis" href="/blog">Blog</a>
+        <a class="nav-item nav-dis" href="/contact">Contact</a>
     </div>
 </nav>

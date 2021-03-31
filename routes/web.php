@@ -30,9 +30,9 @@ Route::get('/blog', function () {
     return view('blog');
 
 });
-Route::get('/contact', function () {
-    return view('contact');
-});
+// Route::get('/contact', function () {
+  //  return view('contact');
+//});
 
 Route::view('/show_react','show_react');
 
@@ -49,6 +49,14 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
   Route::get('/home', 'HomeController@index')->name('dashboard');
 
+  Route::get('/about', 'AboutController@index')->name('about');
+
+  Route::get('/project', 'ProjectController@index')->name('project');
+
+  Route::get('/blog', 'BlogController@index')->name('blog');
+
+  Route::get('/social', 'SocialController@index')->name('social');
+
   Route::get('/masterdetail', 'AdminController@masterdetail');
 
   Route::view('/react', 'admin.react');
@@ -56,6 +64,5 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
   Route::view('/react', 'admin.react');
 
   Route::resource('tasks','AdminTasksController',['as'=>'admin']);
-
 
 });

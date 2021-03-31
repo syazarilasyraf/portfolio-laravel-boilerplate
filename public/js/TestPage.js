@@ -30238,7 +30238,7 @@ if (document.getElementById("root")) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\ir_laravel_boilerplate\resources\react\pages\TestPage.js */"./resources/react/pages/TestPage.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\portfolio-laravel-boilerplate\resources\react\pages\TestPage.js */"./resources/react/pages/TestPage.js");
 
 
 /***/ })

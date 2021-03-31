@@ -3,18 +3,14 @@
 @section('content')
 
 @component('admin.components.navbar')
-@slot('title',"Home")
+@slot('title',"About")
 @endcomponent
 
 <div class="container">
     <form class="margin-top">
         <div class="form-group">
-            <label>Greeting</label>
-            <input type="text" name="greeting" class="form-control" placeholder="Enter Greeting">
-        </div>
-        <div class="form-group">
-            <label>Title</label>
-            <input type="text" name="title" class="form-control" placeholder="Enter Title">
+            <label for="file"></label>
+            <input type="file" class="form-control-file" placeholder="">
         </div>
         <div class="form-group">
             <label>Description</label>

@@ -38,7 +38,7 @@
   <a class="btn btn-primary btn-sm" href="{{ route('logout') }}"
       onclick="event.preventDefault();
           document.getElementById('logout-form').submit();"
-      style="color:blue;"
+      style="color: #fff;"
   >
   Logout
   </a>
@@ -58,13 +58,37 @@
 <div class="sidebar navbar-nav can-fade">
 
 
-<section >SECTION 1</section>
+<section >MENU</section>
 
 <ul class="navbar-nav">
   <li class="nav-item {{ (Request::is('admin/dashboard', 'admin/dashboard/*') ? 'active' : '') }}">
     <a href="/admin/dashboard" class="nav-link">
       <i class="bi bi-house-door mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
-      Dashboard
+      Home
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/about', 'admin/about/*') ? 'active' : '') }}">
+    <a href="/admin/about" class="nav-link">
+      <i class="bi bi-person mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+      About
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/project', 'admin/project/*') ? 'active' : '') }}">
+    <a href="/admin/project" class="nav-link">
+      <i class="bi bi-file-earmark-code mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+      Project
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/blog', 'admin/blog/*') ? 'active' : '') }}">
+    <a href="/admin/blog" class="nav-link">
+      <i class="bi bi-pencil-square mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+      Blog
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/social', 'admin/social/*') ? 'active' : '') }}">
+    <a href="/admin/social" class="nav-link">
+      <i class="bi bi-link-45deg mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+      Social
     </a>
   </li>
   <li class="nav-item {{ (Request::is('admin/masterdetail', 'admin/masterdetail/*') ? 'active' : '') }}">

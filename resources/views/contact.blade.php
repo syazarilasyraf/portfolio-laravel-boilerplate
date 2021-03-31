@@ -4,41 +4,33 @@
 @section('title', 'Contact')
 
 <div class="container">
-    <div class="">
-        <div class="">
+    <div class="col">
+        <div class="col-6 mx-auto">
             <form action="" method="">
-                <h4 class="">
+                <h4>
                     Let's Connect
                 </h4>
 
-                <div class="">
-                    <input class="" type="text" name="email" placeholder="Name">
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="email" placeholder="Name">
                 </div>
 
-                <div class="">
-                    <input class="" type="text" name="email" placeholder="Email Address">
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="email" placeholder="Email Address">
                 </div>
 
-                <div class="">
-                    <input class="" type="text" name="email" placeholder="Subject">
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="email" placeholder="Subject">
                 </div>
 
-                <div class="">
-                    <textarea class="" name="msg" placeholder="Your Message"></textarea>
+                <div class="mb-3">
+                    <textarea class="form-control" name="msg" placeholder="Your Message"></textarea>
                 </div>
 
-                <button class="">
+                <button class="btn-primary btn mb-3">
                     Submit
                 </button>
             </form>
-        </div>
-
-        <div class="">
-            <div class="">
-                <span class="">
-                    <span class=""></span>
-                </span>
-            </div>
         </div>
     </div>
 </div>

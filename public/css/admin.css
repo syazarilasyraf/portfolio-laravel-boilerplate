@@ -262,6 +262,7 @@
   position: fixed;
   top: 0px;
   left: 0px;
+
   width: 100%;
   height: 56px;
   padding: 12px;
@@ -290,3 +291,10 @@
   }
 }
 
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.margin-top {
+    margin-top: 3.5rem;
+}

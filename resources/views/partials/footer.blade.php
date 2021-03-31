@@ -1,4 +1,4 @@
-<footer class="footer" id="socials">
+<footer class="footer">
     <div class="footer-links">
       <a
         href="https://github.com/wmsa-codes"
