@@ -30,9 +30,9 @@ Route::get('/blog', function () {
     return view('blog');
 
 });
-// Route::get('/contact', function () {
-  //  return view('contact');
-//});
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 Route::view('/show_react','show_react');
 
