@@ -3,7 +3,20 @@
 @section('content')
 @section('title', 'Project')
 
-<div class="projects">
+<div class="row">
+    @foreach ($projects as $project)
+    <div class="col-3">
+            <h4>
+                {{ $project->title }}
+            </h4>
+        <p>
+            {{ $project->description }}
+        </p>
+    </div>
+    @endforeach
+</div>
+
+{{-- <div class="projects">
     <div class="projects-title">
       <h2>My Projects</h2>
     </div>
@@ -61,7 +74,7 @@
             </a>
         </div>
     </div>
-</div>
+</div> --}}
 
 {{--
 <div class="projects">
