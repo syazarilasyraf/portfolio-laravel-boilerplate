@@ -6,6 +6,7 @@
 <div class="row">
     @foreach ($projects as $project)
     <div class="col-3">
+        <img src="{{ asset('images/' . $project->image) }}" />
             <h4>
                 {{ $project->title }}
             </h4>

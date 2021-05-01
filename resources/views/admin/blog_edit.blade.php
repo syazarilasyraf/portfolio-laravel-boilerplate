@@ -6,6 +6,8 @@
 @slot('title',"Blog")
 @endcomponent
 
+<div class="container" style="margin-top:60px">
+
 {{-- <h1>Edit Task - {{ $blog->title }} </h1> --}}
 <p class="lead">Edit this task below. <a href="{{ route('admin.blog.index') }}">Go back to all tasks.</a></p>
 <hr>
@@ -24,9 +26,9 @@
   </div>
 @endif
 
-{!! Form::model($blogs, [
+{!! Form::model($blog, [
     'method' => 'PATCH',
-    'route' => ['admin.blog.update', $blogs->id]
+    'route' => ['admin.blog.update', $blog->id]
 ]) !!}
 
 @csrf
@@ -40,16 +42,22 @@
     {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 </div>
 
+<br>
+
 {!! Form::submit('Update Blog', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
 
+<br>
+
 {!! Form::open([
     'method' => 'DELETE',
-    'route' => ['admin.blog.destroy', $blogs->id]
+    'route' => ['admin.blog.destroy', $blog->id]
 ]) !!}
     {!! Form::submit('Delete blog', ['class' => 'btn btn-danger']) !!}
 {!! Form::close() !!}
+
+</div>
 
 @stop
 

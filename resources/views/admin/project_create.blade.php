@@ -6,6 +6,7 @@
 @slot('title',"Project")
 @endcomponent
 
+<div class="container" style="margin-top:60px">
 
 <h1>Add a New Project</h1>
 <p class="lead">Add to your Project list below.</p>
@@ -25,11 +26,11 @@
   </div>
 @endif
 
-<form action="{{ route('admin.project.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('admin.project.store') }}" method="POST" role="form" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-        <label class="control-label" for="title">Title</label>
-        <input class="form-control" type="file" name="image" placeholder="">
+        <label class="control-label" for="title">Image</label>
+        <input class="form-control" type="file" name="image">
     </div>
 
     <div class="form-group">
@@ -42,9 +43,13 @@
         <input class="form-control" type="textarea" name="description" placeholder="Description">
     </div>
 
+    <br>
+
     <button class="btn-primary btn">
         Submit
     </button>
 </form>
+
+</div>
 
 @stop

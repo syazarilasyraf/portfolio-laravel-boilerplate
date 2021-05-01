@@ -6,11 +6,13 @@
 @slot('title',"Blog")
 @endcomponent
 
+<div class="container" style="margin-top:60px">
+
 <h1>Blog List</h1>
 <p class="lead">All your blogs. <a href="{{ route('admin.blog.create') }}">Add a new one?</a></p>
 <hr>
 
-@foreach($blogs as $blog)
+@foreach($blog as $blog)
     <h3>{{ $blog->title }}</h3>
     <p>{{ $blog->description}}</p>
     <p>
@@ -27,5 +29,7 @@
 @endif
 
 @endforeach
+
+</div>
 
 @stop

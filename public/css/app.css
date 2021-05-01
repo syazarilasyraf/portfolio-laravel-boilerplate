@@ -2261,6 +2261,10 @@ textarea.form-control {
   height: auto;
 }
 
+.form-group {
+  margin-bottom: 1rem;
+}
+
 .form-text {
   display: block;
   margin-top: 0.25rem;
@@ -4966,6 +4970,17 @@ input[type=button].btn-block {
   color: #fff;
 }
 
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
 
 .card > hr {
   margin-right: 0;
@@ -4992,6 +5007,12 @@ input[type=button].btn-block {
 .card > .card-header + .list-group,
 .card > .list-group + .card-footer {
   border-top: 0;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
 }
 
 .card-title {
@@ -8460,7 +8481,7 @@ button.bg-dark:focus {
   margin-right: 0.5rem !important;
 }
 
-
+.mb-2,
 .my-2 {
   margin-bottom: 0.5rem !important;
 }

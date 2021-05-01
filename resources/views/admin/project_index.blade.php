@@ -6,17 +6,19 @@
 @slot('title',"Project")
 @endcomponent
 
+<div class="container" style="margin-top:60px">
+
 <h1>Project List</h1>
 <p class="lead">All your Projects. <a href="{{ route('admin.project.create') }}">Add a new one?</a></p>
 <hr>
 
-@foreach($projects as $project)
+@foreach($project as $project)
+    <img src="{{ asset('images/' . $project->image) }}" />
     <h3>{{ $project->title }}</h3>
     <p>{{ $project->description}}</p>
-    {{-- {{ $project->image}} --}}
-    <img src="public/image/{{ $project->image }}"  class="img-thumbnail" />
+
     <p>
-        <a href="{{ route('admin.project.index', $project->id) }}" class="btn btn-info">View Project</a>
+        <a href="{{ route('admin.project.show', $project->id) }}" class="btn btn-info">View Project</a>
         <a href="{{ route('admin.project.edit', $project->id) }}" class="btn btn-primary">Edit Project</a>
     </p>
     <hr>
@@ -29,5 +31,7 @@
 @endif
 
 @endforeach
+
+</div>
 
 @stop

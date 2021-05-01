@@ -35,5 +35,7 @@
     </div>
 </div>
 
+{{-- @if(!empty($socials)) --}}
 @include('partials.footer')
+{{-- @endif --}}
 @endsection

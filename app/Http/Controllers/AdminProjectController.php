@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use Illuminate\Http\Request;
 use Session;
+use Image;
 
 class AdminProjectController extends Controller
 {
@@ -12,8 +13,8 @@ class AdminProjectController extends Controller
     public function index()
     {
 
-        $Projects = Project::all();
-        return view('admin.project_index')->with('projects',$Projects);
+        $project = Project::all();
+        return view('admin.project_index')->with('project',$project);
 
     }
 
@@ -35,29 +36,68 @@ class AdminProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+
+        //Methods we can use on $request
+        //guessExtension()
+        //getMimeType()
+        //store()
+        //asStore()
+        //storePublicly()
+        //move()
+        //getClientOriginalName()
+        //getClientMimeType()
+        //guessClientExtension()
+        //getSize()
+        //getError()
+        //isValid()
+
+        $request->validate ([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          ]);
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
 
-            if ($files = $request->file('image')) {
-            $destinationPath = 'image'; // upload path
-            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $profileImage);
-            $insert['image'] = "$profileImage";
+        ]);
 
-            }
+            $image = $request->file('image');
 
-        $input = $request->all();
+            $image_name = time() . '-' . $request->title . '.'
+            .$image->extension();
+
+            $destinationPath = public_path('images');
+
+            $resize_image = Image::make($image->getRealPath());
+
+            $resize_image->resize(150, 150, function($constraint)
+            {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_name);
+
+
+
+            // $newImageName = time() . '-' . $request->title . '.' .
+            // $request->image->extension();
+
+            // $destinationPath = public_path('images');
+            // // $request->file->getFilename();
+
+            // $request->image->move($destinationPath, $newImageName);
+
+            // $input = $request->all();
+
+        $input = $request->only(['title', 'description']) + ['image' => $image_name];
 
         Project::create($input);
 
-        Session::flash('flash_message', 'Blog successfully added!');
+        Session::flash('flash_message', 'Project successfully added!');
 
         return redirect()->back();
 
     }
+
+        // public function show()
+        // {
+        //     return Storage::size('public/images');
+        // }
 
     /**
      * Display the specified resource.
@@ -67,8 +107,8 @@ class AdminProjectController extends Controller
      */
     public function show($id)
     {
-        $Projects = Project::find($id);
-        return view('admin.project_index')->with('projects',$Projects); // //
+        $project = Project::find($id);
+        return view('admin.project_show')->with('project',$project); // //
     }
 
     /**
@@ -79,8 +119,8 @@ class AdminProjectController extends Controller
      */
     public function edit($id)
     {
-        $Projects = Project::find($id);
-        return view('admin.project_edit')->with('projects',$Projects);
+        $project = Project::find($id);
+        return view('admin.project_edit')->with('project',$project);
 
     }
 
@@ -94,24 +134,40 @@ class AdminProjectController extends Controller
     public function update(Request $request, $id)
     {
 
-        $Projects = Project::find($id);
+        $project = Project::find($id);
 
-        $this->validate($request, [
+        $request->validate ([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-            if ($files = $request->file('image')) {
-                $destinationPath = 'image'; // upload path
-                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-                $files->move($destinationPath, $profileImage);
-                $update['image'] = "$profileImage";
-                }
-        $input = $request->all();
 
-        $Projects->fill($input)->save();
+        ]);
 
-        Session::flash('flash_message', 'Blog updated!');
+        // $image = $request->file('image');
+
+        // $image_name = time() . '-' . $request->title . '.'
+        // .$image->extension();
+
+        // $destinationPath = public_path('images');
+
+        // $resize_image = Image::make($image->getRealPath());
+
+        // $resize_image->resize(150, 150, function($constraint)
+        // {
+        //     $constraint->aspectRatio();
+        // })->save($destinationPath . '/' . $image_name);
+
+            // $newImageName = time() . '-' . $request->title . '.' .
+            // $request->image->extension();
+
+
+            // $request->image->move(public_path('images'), $newImageName);
+
+            $input = $request->all();
+            // $input = $request->only(['title', 'description']) + ['image' => $newImageName];
+
+        $project->fill($input)->save();
+
+        Session::flash('flash_message', 'Project updated!');
 
         return redirect()->back(); //
 
@@ -125,14 +181,17 @@ class AdminProjectController extends Controller
      */
     public function destroy($id)
     {
-        $Projects = Project::find($id);
+        $project = Project::find($id);
 
-        $Projects->delete();
+        $project->delete();
 
-        Session::flash('flash_message', 'Blog deleted!');
+        Session::flash('flash_message', 'Project deleted!');
 
         return redirect()->route('admin.project.index'); //
 
     }
+
+
+
 }
 

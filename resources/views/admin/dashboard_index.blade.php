@@ -7,7 +7,7 @@
 @endcomponent
 
 <div class="container">
-    <form class="margin-top">
+    <form style="margin-top:60px">
         <div class="form-group">
             <label>Greeting</label>
             <input type="text" name="greeting" class="form-control" placeholder="Enter Greeting">
@@ -20,6 +20,7 @@
             <label>Description</label>
             <textarea name="description" class="form-control" cols="30" rows="3"></textarea>
         </div>
+        <br>
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Update</button>
         </div>

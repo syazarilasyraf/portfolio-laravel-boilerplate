@@ -6,6 +6,8 @@
 @slot('title',"Project")
 @endcomponent
 
+<div class="container" style="margin-top:60px">
+
 <p class="lead">Edit this Project below. <a href="{{ route('admin.project.index') }}">Go back to all Projects.</a></p>
 <hr>
 
@@ -23,9 +25,9 @@
   </div>
 @endif
 
-{!! Form::model($projects, [
+{!! Form::model($project, [
     'method' => 'PATCH',
-    'route' => ['admin.project.update', $projects->id]
+    'route' => ['admin.project.update', $project->id]
 ]) !!}
 
 @csrf
@@ -39,15 +41,22 @@
     {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 </div>
 
-{!! Form::submit('Update Blog', ['class' => 'btn btn-primary']) !!}
+<br>
+
+{!! Form::submit('Update Project', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
 
 {!! Form::open([
     'method' => 'DELETE',
-    'route' => ['admin.project.destroy', $projects->id]
+    'route' => ['admin.project.destroy', $project->id]
 ]) !!}
-    {!! Form::submit('Delete blog', ['class' => 'btn btn-danger']) !!}
+
+<br>
+
+    {!! Form::submit('Delete Project', ['class' => 'btn btn-danger']) !!}
 {!! Form::close() !!}
+
+</div>
 
 @stop

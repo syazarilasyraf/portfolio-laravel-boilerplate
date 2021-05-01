@@ -22,7 +22,9 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/project', 'ProjectController@index');
+Route::get('/', 'SocialController@index');
+
+Route::get('/projects', 'ProjectController@index');
 
 Route::get('/blog', 'BlogController@index');
 
@@ -31,6 +33,10 @@ Route::get('/contact', function () {
 });
 
 Route::view('/show_react','show_react');
+
+Route::view('php', 'php');
+
+Route::view('ama', 'ama');
 
 /////////////////
 // ADMIN
@@ -53,7 +59,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
   Route::resource('blog', 'AdminBlogController', ['as'=>'admin']);
 
-  Route::get('/social', 'SocialController@index')->name('social');
+  Route::resource('social', 'AdminSocialController', ['as'=>'admin']);
 
   Route::get('/masterdetail', 'AdminController@masterdetail');
 

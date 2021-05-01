@@ -262,7 +262,6 @@
   position: fixed;
   top: 0px;
   left: 0px;
-
   width: 100%;
   height: 56px;
   padding: 12px;
@@ -273,8 +272,6 @@
 #wrapper {
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  height: 100vh;
 }
 
 #content-wrapper {
@@ -291,10 +288,3 @@
   }
 }
 
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.margin-top {
-    margin-top: 3.5rem;
-}

@@ -12,8 +12,8 @@ class AdminBlogController extends Controller
 
     public function index()
     {
-        $Blogs = Blog::all();
-        return view('admin.blog_index')->with('blogs',$Blogs);
+        $blog = Blog::all();
+        return view('admin.blog_index')->with('blog',$blog);
 
     }
 
@@ -57,8 +57,8 @@ class AdminBlogController extends Controller
      */
     public function show($id)
     {
-        $Blogs = Blog::find($id);
-        return view('admin.blog_index')->with('blogs',$Blogs); //
+        $blog = Blog::find($id);
+        return view('admin.blog_index')->with('blog',$blog); //
     }
 
     /**
@@ -69,8 +69,8 @@ class AdminBlogController extends Controller
      */
     public function edit($id)
     {
-        $Blogs = Blog::find($id);
-        return view('admin.blog_edit')->with('blogs',$Blogs); //
+        $blog = Blog::find($id);
+        return view('admin.blog_edit')->with('blog',$blog); //
     }
 
     /**
@@ -82,7 +82,7 @@ class AdminBlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $Blogs = Blog::find($id);
+            $blog = Blog::find($id);
 
             $this->validate($request, [
                 'title' => 'required',
@@ -91,7 +91,7 @@ class AdminBlogController extends Controller
 
             $input = $request->all();
 
-            $Blogs->fill($input)->save();
+            $blog->fill($input)->save();
 
             Session::flash('flash_message', 'Blog updated!');
 
@@ -106,9 +106,9 @@ class AdminBlogController extends Controller
      */
     public function destroy($id)
     {
-        $Blogs = Blog::find($id);
+        $blog = Blog::find($id);
 
-        $Blogs->delete();
+        $blog->delete();
 
         Session::flash('flash_message', 'Blog deleted!');
 

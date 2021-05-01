@@ -30,7 +30,7 @@
         <a id="btnHamburger" class="cursor-pointer" style="color:white;" >Menu</a>
     </div>
     <div>
-      <a href="" class="b">App</a>
+      <a href="" class="b">PORTFOLIO</a>
     </div>
   </div>
 
@@ -91,6 +91,7 @@
       Social
     </a>
   </li>
+  <section >STUDY</section>
   <li class="nav-item {{ (Request::is('admin/masterdetail', 'admin/masterdetail/*') ? 'active' : '') }}">
     <a href="/admin/masterdetail" class="nav-link">
       <i class="bi bi-cpu-fill mr-2"></i>
