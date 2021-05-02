@@ -3,8 +3,8 @@
 @section('content')
 @section('title', 'Home')
 
-<div class="position-relative p-3 p-md-5 m-md-3">
-    <div class="container">
+<div class="container">
+    <div class="position-relative p-3 p-md-5 m-md-3">
         <div class="home col-md-6">
             <div class="home-title ">
                 Hello there! 👋

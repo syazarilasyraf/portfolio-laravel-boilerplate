@@ -18,9 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'AboutController@index');
 
 Route::get('/', 'SocialController@index');
 
@@ -33,8 +31,6 @@ Route::get('/contact', function () {
 });
 
 Route::view('/show_react','show_react');
-
-Route::view('php', 'php');
 
 Route::view('ama', 'ama');
 
@@ -53,7 +49,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
   Route::get('/about', 'AboutController@index')->name('about');
 
-//   Route::get('/project', 'ProjectController@index')->name('project');
+  Route::resource('about', 'AdminAboutController', ['as'=>'admin']);
 
   Route::resource('project', 'AdminProjectController', ['as'=>'admin']);
 
@@ -65,6 +61,6 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
   Route::view('/react', 'admin.react');
 
-//   Route::resource('tasks','AdminTasksController',['as'=>'admin']);
+  Route::resource('tasks','AdminTasksController',['as'=>'admin']);
 
 });

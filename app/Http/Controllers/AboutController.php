@@ -8,7 +8,8 @@ class AboutController extends Controller {
 
     public function index() {
 
-      return view('admin.about');
+        $about= \App\About::all();
+        return view('about')->with('about',$about);
 
     }
 

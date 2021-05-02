@@ -8,6 +8,7 @@
 
 <div class="container" style="margin-top:60px">
 
+<h1>Edit Task - {{ $project->title }} </h1>
 <p class="lead">Edit this Project below. <a href="{{ route('admin.project.index') }}">Go back to all Projects.</a></p>
 <hr>
 

@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
+use App\About;
 use Illuminate\Http\Request;
 use Session;
 use Image;
 
-class AdminProjectController extends Controller
+class AdminAboutController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-
-        $project = Project::all();
-        return view('admin.project_index')->with('project',$project);
+        $about = About::all();
+        return view('admin.about_index')->with('about',$about);
 
     }
 
@@ -25,7 +28,7 @@ class AdminProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.project_create'); //
+        return view('admin.about_create');
     }
 
     /**
@@ -36,29 +39,12 @@ class AdminProjectController extends Controller
      */
     public function store(Request $request)
     {
-
-        //Some Methods that we can use on $request
-        //guessExtension()
-        //getMimeType()
-        //store()
-        //asStore()
-        //storePublicly()
-        //move()
-        //getClientOriginalName()
-        //getClientMimeType()
-        //guessClientExtension()
-        //getSize()
-        //getError()
-        //isValid()
-
         $request->validate ([
-            'title' => 'required',
-            'description' => 'required',
             'image' => 'required|mimes:jpg,png,jpeg|max:5048',
-
+            'description' => 'required',
         ]);
 
-            $image = $request->file('image');
+        $image = $request->file('image');
 
             $image_name = time() . '-' . $request->title . '.'
             .$image->extension();
@@ -72,11 +58,11 @@ class AdminProjectController extends Controller
                 $constraint->aspectRatio();
             })->save($destinationPath . '/' . $image_name);
 
-        $input = $request->only(['title', 'description']) + ['image' => $image_name];
+            $input = $request->only(['description']) + ['image' => $image_name];
 
-        Project::create($input);
+        About::create($input);
 
-        Session::flash('flash_message', 'Project successfully added!');
+        Session::flash('flash_message', 'About successfully added!');
 
         return redirect()->back();
 
@@ -90,8 +76,8 @@ class AdminProjectController extends Controller
      */
     public function show($id)
     {
-        $project = Project::find($id);
-        return view('admin.project_show')->with('project',$project); // //
+        $about = About::find($id);
+        return view('admin.about_show')->with('about',$about);
     }
 
     /**
@@ -102,9 +88,8 @@ class AdminProjectController extends Controller
      */
     public function edit($id)
     {
-        $project = Project::find($id);
-        return view('admin.project_edit')->with('project',$project);
-
+        $about = About::find($id);
+        return view('admin.about_edit')->with('about',$about);
     }
 
     /**
@@ -116,23 +101,20 @@ class AdminProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $project = Project::find($id);
+        $about = About::find($id);
 
         $request->validate ([
-            'title' => 'required',
             'description' => 'required',
 
         ]);
 
             $input = $request->all();
 
-        $project->fill($input)->save();
+        $about->fill($input)->save();
 
-        Session::flash('flash_message', 'Project updated!');
+        Session::flash('flash_message', 'About updated!');
 
-        return redirect()->back(); //
-
+        return redirect()->back();
     }
 
     /**
@@ -143,15 +125,12 @@ class AdminProjectController extends Controller
      */
     public function destroy($id)
     {
-        $project = Project::find($id);
+        $about = About::find($id);
 
-        $project->delete();
+        $about->delete();
 
-        Session::flash('flash_message', 'Project deleted!');
+        Session::flash('flash_message', 'About deleted!');
 
-        return redirect()->route('admin.project.index'); //
-
+        return redirect()->route('admin.about.index');
     }
-
 }
-

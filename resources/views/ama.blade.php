@@ -1,4 +1,10 @@
+@extends('layouts.default')
 
+@section('content')
+@section('title', 'AMA')
+
+<div class="container">
+    <div class="col-4 mx-auto">
 
 <div>
     <h1>
@@ -21,3 +27,7 @@
     </div>
 </form>
 
+    </div>
+</div>
+
+@endsection

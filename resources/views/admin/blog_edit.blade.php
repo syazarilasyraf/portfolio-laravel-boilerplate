@@ -8,8 +8,8 @@
 
 <div class="container" style="margin-top:60px">
 
-{{-- <h1>Edit Task - {{ $blog->title }} </h1> --}}
-<p class="lead">Edit this task below. <a href="{{ route('admin.blog.index') }}">Go back to all tasks.</a></p>
+<h1>Edit Task - {{ $blog->title }} </h1>
+<p class="lead">Edit this blog below. <a href="{{ route('admin.blog.index') }}">Go back to all tblogs.</a></p>
 <hr>
 
 @if(Session::has('flash_message'))

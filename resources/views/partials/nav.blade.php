@@ -5,5 +5,6 @@
         <a class="nav-item nav-dis" href="/projects">Project</a>
         <a class="nav-item nav-dis" href="/blog">Blog</a>
         <a class="nav-item nav-dis" href="/contact">Contact</a>
+        <a class="nav-item nav-dis" href="/ama">AMA</a>
     </div>
 </nav>
