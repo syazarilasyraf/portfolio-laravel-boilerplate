@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller {
 
-    public function index() {
-
-      return view('admin.home');
+    function index() {
+        $home = \App\Home::all();
+        return view('home')->with('home',$home);
 
     }
 

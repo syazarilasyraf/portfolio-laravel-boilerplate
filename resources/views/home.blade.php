@@ -6,16 +6,18 @@
 <div class="container">
     <div class="position-relative p-3 p-md-5 m-md-3">
         <div class="home col-md-6">
+            @foreach ($home as $home)
             <div class="home-title ">
-                Hello there! 👋
+                {{ $home->greeting }}
             <br />
-                <p class="home-name" >I'm Syazaril Asyraf.</p>
+                <p class="home-name" >{{ $home->title }}</p>
             </div>
             <div class="home-para">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    {{ $home->description }}
                 </p>
             </div>
+            @endforeach
         </div>
     </div>
 </div>

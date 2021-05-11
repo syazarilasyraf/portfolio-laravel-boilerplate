@@ -7,6 +7,7 @@
 |
 */
 
+use App\Http\Controllers\QnaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +15,9 @@ use Illuminate\Support\Facades\Route;
 // -- register / login
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('/about', 'AboutController@index');
-
-Route::get('/', 'SocialController@index');
 
 Route::get('/projects', 'ProjectController@index');
 
@@ -32,7 +29,11 @@ Route::get('/contact', function () {
 
 Route::view('/show_react','show_react');
 
-Route::view('ama', 'ama');
+Route::resource('ama', 'QnaController');
+
+// Route::get('/add-question',[QnaController::class,'addQuestion']);
+
+// Route::get('/add-answer/{id}',[QnaController::class,'addAnswer']);
 
 /////////////////
 // ADMIN
@@ -45,9 +46,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
   Route::get('/dashboard', 'AdminController@index');
 
-  Route::get('/home', 'HomeController@index')->name('dashboard');
-
-  Route::get('/about', 'AboutController@index')->name('about');
+  Route::resource('home', 'AdminHomeController', ['as'=>'admin']);
 
   Route::resource('about', 'AdminAboutController', ['as'=>'admin']);
 
@@ -56,6 +55,10 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
   Route::resource('blog', 'AdminBlogController', ['as'=>'admin']);
 
   Route::resource('social', 'AdminSocialController', ['as'=>'admin']);
+
+  Route::resource('ama', 'AdminQnaController', ['as'=>'admin']);
+
+  Route::post('ama', 'AdminQnaController', ['as'=>'admin']);
 
   Route::get('/masterdetail', 'AdminController@masterdetail');
 

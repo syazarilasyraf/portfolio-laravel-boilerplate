@@ -63,6 +63,12 @@
 <ul class="navbar-nav">
   <li class="nav-item {{ (Request::is('admin/dashboard', 'admin/dashboard/*') ? 'active' : '') }}">
     <a href="/admin/dashboard" class="nav-link">
+        <i class="bi bi-bell mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+        Dashboard
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/home', 'admin/home/*') ? 'active' : '') }}">
+    <a href="/admin/home" class="nav-link">
       <i class="bi bi-house-door mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
       Home
     </a>
@@ -89,6 +95,12 @@
     <a href="/admin/social" class="nav-link">
       <i class="bi bi-link-45deg mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
       Social
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/ama', 'admin/ama/*') ? 'active' : '') }}">
+    <a href="/admin/ama" class="nav-link">
+        <i class="bi bi-chat-dots mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+        AMA
     </a>
   </li>
   <section >STUDY</section>
