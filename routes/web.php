@@ -21,19 +21,15 @@ Route::get('/about', 'AboutController@index');
 
 Route::get('/projects', 'ProjectController@index');
 
-Route::get('/blog', 'BlogController@index');
+Route::get('/writing', 'BlogController@index');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/bookmarks', 'BookmarkController@index');
+
+Route::get('/tools', 'ToolController@index');
 
 Route::view('/show_react','show_react');
 
 Route::resource('ama', 'QnaController');
-
-// Route::get('/add-question',[QnaController::class,'addQuestion']);
-
-// Route::get('/add-answer/{id}',[QnaController::class,'addAnswer']);
 
 /////////////////
 // ADMIN
@@ -58,7 +54,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
   Route::resource('ama', 'AdminQnaController', ['as'=>'admin']);
 
-  Route::post('ama', 'AdminQnaController', ['as'=>'admin']);
+  Route::resource('bookmark', 'AdminBookmarkController', ['as'=>'admin']);
+
+//   Route::post('ama', 'AdminQnaController', ['as'=>'admin']);
 
   Route::get('/masterdetail', 'AdminController@masterdetail');
 

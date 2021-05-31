@@ -5,14 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
-
 <!-- CSS only -->
-<link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-  rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-  crossorigin="anonymous"
-/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
 
 <title>App</title>
 </head>
@@ -101,6 +96,18 @@
     <a href="/admin/ama" class="nav-link">
         <i class="bi bi-chat-dots mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
         AMA
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/bookmarks', 'admin/bookmarks/*') ? 'active' : '') }}">
+    <a href="/admin/bookmark" class="nav-link">
+        <i class="bi bi-bookmark mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+        Bookmarks
+    </a>
+  </li>
+  <li class="nav-item {{ (Request::is('admin/tools', 'admin/tools/*') ? 'active' : '') }}">
+    <a href="/admin/tools" class="nav-link">
+        <i class="bi bi-laptop mr-2" style="margin-bottom:-15px;margin-right:3px;"></i>
+        Tools
     </a>
   </li>
   <section >STUDY</section>

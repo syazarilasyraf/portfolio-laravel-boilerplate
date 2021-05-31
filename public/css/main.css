@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@320;400;500;750;900&display=swap");
 
 body {
-    color: #fff;
+    background-color: #050505;
 }
 
 * {
@@ -10,8 +10,8 @@ body {
 
 /* nav */
 
-.nav {
-    background: #fff;
+/* .nav {
+    background: #111111;
 }
 .nav .nav-item {
     color: #aeaeae;
@@ -35,9 +35,16 @@ body {
 .nav-dis {
     padding-right: 2rem;
     padding-left: 2rem;
-}
+} */
 
 /* nav end */
+
+.nav-main {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #111111;
+    border-bottom: 8px solid #c20000;
+}
 
 
 /* home start */
@@ -85,9 +92,9 @@ body {
 
 /* projects */
 
-.projects {
-    background: #e8e9ee;
-    padding: 50px 20px;
+.bg {
+    background: #050505;
+    padding: 50px 50px;
 }
 
 .projects a {

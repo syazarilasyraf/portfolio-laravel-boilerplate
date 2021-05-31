@@ -1,10 +1,21 @@
-<nav class="nav nav-container col-md-5">
-    <div class="d-flex nav-main">
-        <a class="nav-item nav-dis" href="/">Home</a>
-        <a class="nav-item nav-dis" href="/about">About</a>
-        <a class="nav-item nav-dis" href="/projects">Project</a>
-        <a class="nav-item nav-dis" href="/blog">Blog</a>
-        <a class="nav-item nav-dis" href="/contact">Contact</a>
-        <a class="nav-item nav-dis" href="/ama">AMA</a>
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark portfolio-navbar" style="background-color:#111111;">
+    <div class="container"><a class="navbar-brand logo" href="#"><img src="assets/img/favicon-32x32.png"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="/" style="font-style:normal;">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="/writing">Writing</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">Links</a>
+                    <div class="dropdown-menu" role="menu" style="background-color:#111111;">
+                        <a class="dropdown-item" role="presentation" href="/ama" style="color:rgb(255,255,255);">AMA</a>
+                        <a class="dropdown-item" role="presentation" href="/bookmarks" style="color:rgb(255,255,255);">Bookmarks</a>
+                        <a class="dropdown-item" role="presentation" href="/tools" style="color:rgb(255,255,255);">Tools</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

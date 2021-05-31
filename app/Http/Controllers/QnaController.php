@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
-// use App\Answer;
+use App\Answer;
 use Session;
 
 class QnaController extends Controller
@@ -43,29 +43,4 @@ class QnaController extends Controller
         return redirect()->back();
     }
 
-    // public function addQuestion(Request $request)
-    // {
-    //     $question = new Question();
-
-    //     $question->question = "First Question";
-
-    //     $question->save();
-
-    //     return "Question submitted";
-
-
-    // }
-
-    // public function addAnswer($id)
-    // {
-    //     $question = Question::find($id);
-
-    //     $answer = new Answer();
-
-    //     $answer->answer = "First answer";
-
-    //     $question->answers()->save($answer);
-
-    //     return "Answer submitted";
-    // }
 }

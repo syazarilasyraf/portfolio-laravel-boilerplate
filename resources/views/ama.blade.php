@@ -8,69 +8,96 @@
 // $ama = App\ama::get();
 ?>
 
-<div class="container">
-    <div class="col-4 mx-auto">
+<main class="page lanidng-page">
+    <section class="portfolio-block block-intro" style="background-color:#050505;">
+        <div class="container">
+            <div class="about-me" style="color:rgb(255,255,255);">
+                <p class="text-left" style="font-size:24px; font-weight: bold">Ask Me Anything</p>
+                <p class="text-left" style="font-size:16px; color: #d4d4d4;">Just for fun! Questions will be visible after I’ve answered.<br></p>
+                <form action="{{ route('admin.ama.store') }}" method="POST">
+                    @csrf
+                <textarea id="myTxt" name="myTxt" rows="3" cols="100" name="question" placeholder="Ask me anything..."></textarea>
 
-<div>
-    <h1>
-        Ask Me Anything
-    </h1>
-    <p>
-        Just for fun! Questions will be visible after I’ve answered.
-    </p>
-    <form action="{{ route('admin.ama.store') }}" method="POST">
-        @csrf
-        <textarea placeholder="Ask me anything..." name="question" cols="44" rows="3">
-        </textarea>
-        <br>
-        <br>
+                <br>
+                <br>
 
-        @if(Session::has('flash_message'))
-        <div class="alert alert-success">
-            {{ Session::get('flash_message') }}
+                @if(Session::has('flash_message'))
+                <div class="alert alert-success">
+                    {{ Session::get('flash_message') }}
+                </div>
+                @endif
+
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+                @endif
+
+
+                <div type="submit" id="btn" >
+                    <button class="btn-primary btn">
+                        Ask Away!
+                    </button>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+                @foreach($question as $question)
+
+                <p class="text-left" style="font-size:16px; ">{{ $question->question }}</p>
+                <p class="text-left" style="font-size:16px; color: #d4d4d4;">{{ $question->answers }}</p>
+
+                    {{--  // $answer = App\Answer::get();
+
+                    @forelse ($answer as $answer )
+
+                    <p class="text-left" style="font-size:16px; color: #d4d4d4;">{{ $answer->answer}}</p>
+
+                    @empty
+
+                    <p>It's quite in here</p>
+
+                    @endforelse --}}
+
+                @endforeach
+
+                {{-- @forelse($question as $question)
+
+                    <p>{{ $question->question}}</p>
+
+                @empty
+                    <p colspan="4">No record found</p>
+                @endforelse --}}
+
+                {{-- <ul class="list-unstyled">
+                    <li class="media">
+                      <div class="media-body">
+                        <h5 class="mt-0 mb-1">List-based media object</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      </div>
+                    </li>
+                    <li class="media my-4">
+                      <div class="media-body">
+                        <h5 class="mt-0 mb-1">List-based media object</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      </div>
+                    </li>
+                    <li class="media">
+                      <div class="media-body">
+                        <h5 class="mt-0 mb-1">List-based media object</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                      </div>
+                    </li>
+                </ul> --}}
+
+            </div>
         </div>
-        @endif
-
-        @if($errors->any())
-        <div class="alert alert-danger">
-            @foreach($errors->all() as $error)
-            <p>{{ $error }}</p>
-            @endforeach
-        </div>
-        @endif
-
-        <div>
-            <button class="btn-primary btn">
-                Submit
-            </button>
-        </div>
-    </form>
-
-    <br>
-    <br>
-
-    {{-- <div class="row">
-        <div class="col-6">
-            <h6>
-                Questions &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                &nbsp&nbsp&nbsp →
-            </h6>
-            <br>
-            @foreach ($ama as $ama )
-            <p>{{ $ama->question }}</p>
-            @endforeach
-        </div>
-
-        <div class="col-6">
-            <h6>
-                : Answers
-            </h6>
-            <br>
-            @foreach ($ama_answer as $ama_answer)
-            <p>: {{ $ama_answer->answer }}</p>
-            @endforeach
-        </div>
-    </div> --}}
+    </section>
+</main>
 
 @endsection

@@ -31,12 +31,6 @@ class AdminQnaController extends Controller
     {
         $question = Question::find($id);
 
-        // $answer = new Answer();
-
-        // $answer->answer = "First answer";
-
-        // $question->answers()->save($answer);
-
         return view('admin.ama_edit')->with('question',$question);
     }
 
@@ -62,13 +56,9 @@ class AdminQnaController extends Controller
 
         $answer -> save();
 
-        // Answer::create($input);
-
         Session::flash('flash_message', 'Submitted!');
 
         return redirect()->back();
     }
-
-    
 
 }

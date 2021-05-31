@@ -1,36 +1,19 @@
 <?php
 $social = App\Social::first();
 ?>
-<footer class="footer">
-    <div class="footer-links">
-      <a
-        href="{{ $social->github }}"
-        title="My GitHub"
-        style="background: #111111"
-      >
-        <i class="fab fa-github"></i>
-      </a>
-      <a
-        href="{{ $social->linkedin }}"
-        title="My LinkedIn"
-        style="background: #0e76a8"
-      >
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a
-        href="{{ $social->twitter }}"
-        title="My Twitter"
-        style="background: #00acee"
-      >
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a
-        href="{{ $social->email }}"
-        title="Email me 📧"
-        style="background: #0044ff"
-      >
-        <i class="far fa-envelope"></i>
-      </a>
+<footer class="page-footer" style="background-color:#050505;">
+    <div class="container">
+        <div class="social-icons">
+            <a href="{{ $social->github }}" style="background-color:rgb(0,0,0);">
+                <i class="icon ion-social-github"></i></a>
+            <a href="{{ $social->linkedin }}" style="background-color:#0e76a8;">
+                <i class="icon ion-social-linkedin"></i></a>
+            <a href="{{ $social->twitter }}" style="background-color:#00acee;">
+                <i class="icon ion-social-twitter"></i></a>
+            <a
+                href="{{ $social->email }}" style="background-color:#0044ff;">
+                <i class="icon ion-email"></i></a>
+        </div>
+        <a style="color:#d4d4d4;;">Made with 🖤 by wmsacodes</a>
     </div>
-    Made with 🖤 by wmsacodes
 </footer>

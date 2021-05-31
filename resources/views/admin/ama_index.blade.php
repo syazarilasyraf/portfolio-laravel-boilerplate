@@ -6,9 +6,11 @@
 @slot('title',"AMA")
 @endcomponent
 
-<?php
-// $answer = App\Answer::get();
-?>
+<?php // $answer = App\Answer::get(); ?>
+
+<?php // $question = App\Question::with('answers:answer,question_id')->get(); ?>
+
+
 
 <div class="container" style="margin-top:60px">
 
@@ -20,14 +22,20 @@
         <div class="col-6">
             @foreach($question as $question)
                 <p>{{ $question->question }}</p>
+                <p>{{ $question->answers }}</p>
+                <p>Asked on {{ $question->created_at->format('d M y') }}</p>
+                <p> {{ $question->created_at->toDateString() }}<p>
+                <p> {{ $question->created_at->toTimeString() }} <p>
+                <p> {{ $question->created_at->toDateTimeString() }}<p>
+                <p> {{ $question->created_at->getTimestamp() }}<p>
+
                 <p>
-                    <a href="{{ route('admin.ama.index', $question->id) }}" class="btn btn-info">View Question</a>
                     <a href="{{ route('admin.ama.edit', $question->id) }}" class="btn btn-primary">Answer Question</a>
                 </p>
                 <hr>
 
                 @if(Session::has('flash_message'))
-                <div class="alert alert-success">
+                <div class="alert -success">
                     {{ Session::get('flash_message') }}
                 </div>
 
@@ -36,32 +44,6 @@
             @endforeach
 
         </div>
-
-            {{-- @stop
-        </div> --}}
-
-        {{-- <div class="col-6">
-            @foreach($answer as $answer)
-                <p>{{ $answer->answer }}</p>
-                <p>
-                    <a href="{{ route('ama.index', $answer->id) }}" class="btn btn-info">View Answer</a>
-                    <a href="{{ route('ama.edit', $answer->id) }}" class="btn btn-primary">Edit Answer</a>
-                </p>
-                <hr>
-
-                @if(Session::has('flash_message'))
-                <div class="alert alert-success">
-                    {{ Session::get('flash_message') }}
-                </div>
-
-                @endif
-
-            @endforeach
-
-        </div> --}}
-
-            {{-- @stop
-        </div> --}}
     </div>
 
     @stop

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en-US">
+
     @include('partials.head')
 
-    <body>
+    <body style="background-color:#050505;">
         @include('partials.nav')
-        <div class="container">
-            @yield('content')
-        </div>
-    </body>
+
+        @yield('content')
 
     @include('partials.scripts')
+    </body>
+
 </html>

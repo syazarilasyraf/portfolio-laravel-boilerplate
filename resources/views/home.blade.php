@@ -3,25 +3,23 @@
 @section('content')
 @section('title', 'Home')
 
-<div class="container">
-    <div class="position-relative p-3 p-md-5 m-md-3">
-        <div class="home col-md-6">
-            @foreach ($home as $home)
-            <div class="home-title ">
-                {{ $home->greeting }}
-            <br />
-                <p class="home-name" >{{ $home->title }}</p>
+    <main class="page">
+        <section class="portfolio-block block-intro">
+            <div class="container">
+                @foreach ($home as $home)
+                <div class="about-me" style="color:rgb(255,255,255);">
+                    <p class="text-left">{{ $home->greeting }}</p>
+                    <p class="text-left" style="font-size:40px; font-weight: bold">{{ $home->title }}</p>
+                    <p class="text-left" style="color: #d4d4d4;">{{ $home->description }}<br></p>
+                    @endforeach
+                    <button onclick="location.href='/about'" class="btn-primary btn">
+                        Learn more about me
+                    </button>
+                </div>
             </div>
-            <div class="home-para">
-                <p>
-                    {{ $home->description }}
-                </p>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
+        </section>
+    </main>
 
-@include('partials.footer')
+    @include('partials.footer')
 
 @endsection

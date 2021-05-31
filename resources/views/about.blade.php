@@ -4,19 +4,21 @@
 @section('content')
 @section('title', 'About')
 
-<div class="text-center">
-    <div class="col-md-12 md-4">
-        @foreach ($about as $about)
-        {{-- <img class="rounded-circle" alt="100x100" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" --}}
-        <img class="rounded-circle" alt="50x50" src="{{ asset('images/' . $about->image) }}"
-          data-holder-rendered="true">
-        <div class="desc-text col-md-5">
-            <h5>
-                {{ $about->description }}
-            </h5>
+<main class="page lanidng-page">
+    <section class="portfolio-block block-intro">
+        <div class="container">
+            @foreach ($about as $about)
+            <div class="about-me" style="color:rgb(255,255,255);"><img class="rounded-circle" alt="50x50" src="{{ asset('images/' . $about->image) }}"
+                data-holder-rendered="true">
+
+                <br>
+                <br>
+
+                <p class="text-left" style="font-size:16px; color: #d4d4d4;">{{ $about->description }}<br><br></p>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
-</div>
+    </section>
+</main>
 
 @endsection
