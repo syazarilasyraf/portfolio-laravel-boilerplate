@@ -6,11 +6,9 @@
 @slot('title',"AMA")
 @endcomponent
 
-<?php // $answer = App\Answer::get(); ?>
-
-<?php // $question = App\Question::with('answers:answer,question_id')->get(); ?>
-
-
+<?php
+    // $answer = App\Answer::get();
+?>
 
 <div class="container" style="margin-top:60px">
 
@@ -20,14 +18,20 @@
 
     <div class="row">
         <div class="col-6">
-            @foreach($question as $question)
+
+            @foreach($question as $question )
                 <p>{{ $question->question }}</p>
-                <p>{{ $question->answers }}</p>
-                <p>Asked on {{ $question->created_at->format('d M y') }}</p>
+                @foreach($question->answers as $answer)
+                {{ $answer->answer }}
+                @endforeach
+
+                <div style="margin-top: 10px;"></div>
+
+                {{-- <p>Asked on {{ $question->created_at->format('d M y') }}</p>
                 <p> {{ $question->created_at->toDateString() }}<p>
                 <p> {{ $question->created_at->toTimeString() }} <p>
                 <p> {{ $question->created_at->toDateTimeString() }}<p>
-                <p> {{ $question->created_at->getTimestamp() }}<p>
+                <p> {{ $question->created_at->getTimestamp() }}<p> --}}
 
                 <p>
                     <a href="{{ route('admin.ama.edit', $question->id) }}" class="btn btn-primary">Answer Question</a>

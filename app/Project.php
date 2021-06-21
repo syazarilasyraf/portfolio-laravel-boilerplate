@@ -8,7 +8,8 @@ class Project extends Model
 {
     protected $fillable = [
         'title',
+        'link',
         'description',
-        'image',
+        // 'image',
        ];
 }

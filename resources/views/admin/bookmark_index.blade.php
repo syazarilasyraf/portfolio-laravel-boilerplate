@@ -13,8 +13,10 @@
 <hr>
 
 @foreach($bookmark as $bookmark)
+    <p>{{ $bookmark->linkimg}}</p>
     <h3>{{ $bookmark->title }}</h3>
     <p>{{ $bookmark->description}}</p>
+    <p>{{ $bookmark->link}}</p>
     <p>
         <a href="{{ route('admin.bookmark.index', $bookmark->id) }}" class="btn btn-info">View bookmark</a>
         <a href="{{ route('admin.bookmark.edit', $bookmark->id) }}" class="btn btn-primary">Edit bookmark</a>

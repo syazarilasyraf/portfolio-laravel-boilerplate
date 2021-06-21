@@ -29,13 +29,27 @@
     <form action="{{ route('admin.bookmark.store') }}" method="post">
         @csrf
         <div class="form-group">
+            <label class="control-label" for="title">Link Image</label>
+            <input class="form-control" type="text" name="linkimg" placeholder="Link">
+        </div>
+
+        <br>
+
+        <div class="form-group">
             <label class="control-label" for="title">Title</label>
             <input class="form-control" type="text" name="title" placeholder="Title">
         </div>
 
         <br>
 
-        <select id="myselect">
+        <div class="form-group">
+            <label class="control-label" for="title">Link</label>
+            <input class="form-control" type="text" name="link" placeholder="Link">
+        </div>
+
+        <br>
+
+        {{-- <select id="myselect">
             <option value="">Click here to choose</option>
             <option value="Reading">Reading</option>
             <option value="Website">Website</option>
@@ -46,6 +60,11 @@
 
         <div class="form-group">
             <input id="myinput" class="form-control" type="textarea" name="description">
+        </div> --}}
+
+        <div class="form-group">
+            {!! Form::label('description', 'Description:', ['class' => 'control-label']) !!}
+            {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
         </div>
 
         <br>
@@ -57,13 +76,13 @@
 
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 $('#myselect').on('change', function(){
   $('#myinput').val($(this).val());
 })
 
 $('#myselect').change();
-</script>
+</script> --}}
 
 @stop

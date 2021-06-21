@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\About;
 use Illuminate\Http\Request;
 use Session;
-use Image;
+// use Image;
 
 class AdminAboutController extends Controller
 {
@@ -39,32 +39,43 @@ class AdminAboutController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate ([
-            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+        $this->validate($request, [
             'description' => 'required',
-        ]);
+          ]);
 
-        $image = $request->file('image');
-
-            $image_name = time() . '-' . $request->title . '.'
-            .$image->extension();
-
-            $destinationPath = public_path('images');
-
-            $resize_image = Image::make($image->getRealPath());
-
-            $resize_image->resize(150, 150, function($constraint)
-            {
-                $constraint->aspectRatio();
-            })->save($destinationPath . '/' . $image_name);
-
-            $input = $request->only(['description']) + ['image' => $image_name];
+        $input = $request->all();
 
         About::create($input);
 
         Session::flash('flash_message', 'About successfully added!');
 
         return redirect()->back();
+        // $request->validate ([
+        //     'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+        //     'description' => 'required',
+        // ]);
+
+        // $image = $request->file('image');
+
+        //     $image_name = time() . '-' . $request->title . '.'
+        //     .$image->extension();
+
+        //     $destinationPath = public_path('images');
+
+        //     $resize_image = Image::make($image->getRealPath());
+
+        //     $resize_image->resize(150, 150, function($constraint)
+        //     {
+        //         $constraint->aspectRatio();
+        //     })->save($destinationPath . '/' . $image_name);
+
+        //     $input = $request->only(['description']) + ['image' => $image_name];
+
+        // About::create($input);
+
+        // Session::flash('flash_message', 'About successfully added!');
+
+        // return redirect()->back();
 
     }
 
@@ -103,16 +114,15 @@ class AdminAboutController extends Controller
     {
         $about = About::find($id);
 
-        $request->validate ([
+        $this->validate($request, [
             'description' => 'required',
+          ]);
 
-        ]);
+        $input = $request->all();
 
-            $input = $request->all();
+        About::create($input);
 
-        $about->fill($input)->save();
-
-        Session::flash('flash_message', 'About updated!');
+        Session::flash('flash_message', 'About successfully updated!');
 
         return redirect()->back();
     }

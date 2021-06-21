@@ -10,14 +10,22 @@
                 <p class="text-left" style="font-size:24px;">Tools</p>
                 <p class="text-left" style="font-size:16px;">A list of my favorite tools that I use on a regular basis and that I would recommend to try.<br></p>
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="nav-link active" href="#">Windows</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Android</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Chrome</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">All</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tools/windows">Windows</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tools/android">Android</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tools/web">Web</a></li>
                 </ul>
-                <p class="text-left" style="font-size:16px;">Lorem Ipsum.<br></p>
-                <p class="text-left" style="font-size:16px;">Lorem Ipsum.<br></p>
-                <p class="text-left" style="font-size:16px;">Lorem Ipsum.<br></p>
-                <p class="text-left" style="font-size:16px;">Lorem Ipsum.<br></p>
+
+                <br>
+
+                @foreach ($tool as $tool )
+
+                <a href="{{ $tool->link }}" style="text-decoration: none; color: inherit;">
+                <p class="text-left" style="font-size:16px; font-weight:bold; margin-bottom: 0.5em;">{{ $tool->title }}</p>
+                <p class="text-left" style="font-size:16px; color: #d4d4d4;"> · {{ $tool->description }}</p>
+                </a>
+
+                @endforeach
             </div>
         </div>
     </section>

@@ -8,8 +8,8 @@ class ProjectController extends Controller
 {
 
     function index() {
-        $Projects = \App\Project::all();
-        return view('projects')->with('projects',$Projects);
+        $project = \App\Project::all()->sortByDesc('id');
+        return view('about')->with('project',$project);
 
     }
 

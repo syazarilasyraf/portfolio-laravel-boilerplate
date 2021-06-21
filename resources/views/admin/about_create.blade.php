@@ -28,10 +28,10 @@
 
     <form action="{{ route('admin.about.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label class="control-label" for="title">Image</label>
             <input class="form-control" type="file" name="image">
-        </div>
+        </div> --}}
 
         <div class="form-group">
             <label class="control-label" for="description">Description</label>

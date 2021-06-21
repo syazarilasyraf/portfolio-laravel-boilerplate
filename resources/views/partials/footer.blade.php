@@ -14,6 +14,6 @@ $social = App\Social::first();
                 href="{{ $social->email }}" style="background-color:#0044ff;">
                 <i class="icon ion-email"></i></a>
         </div>
-        <a style="color:#d4d4d4;;">Made with 🖤 by wmsacodes</a>
+        <a style="color:#d4d4d4;;">Made with ☕ by wmsacodes</a>
     </div>
 </footer>

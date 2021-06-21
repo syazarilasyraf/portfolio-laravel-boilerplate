@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Ama_answers;
+use App\Answer;
 use Illuminate\Http\Request;
 use Session;
 
@@ -15,8 +15,8 @@ class AMAController extends Controller
      */
     public function index()
     {
-        $ama_answer = Ama_answer::all();
-        return view('ama')->with('ama_answer',$ama_answer);
+        $answer = Answer::all();
+        return view('ama')->with('answer',$answer);
     }
 
     /**
@@ -43,7 +43,7 @@ class AMAController extends Controller
 
         $input = $request->all();
 
-        Ama_answers::create($input);
+        Answer::create($input);
 
         Session::flash('flash_message', 'Question answered!');
 

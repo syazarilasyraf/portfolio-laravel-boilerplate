@@ -38,6 +38,11 @@
 </div>
 
 <div class="form-group">
+    <label class="control-label" for="title">Link</label>
+    <input class="form-control" type="text" name="link" placeholder="Link">
+</div>
+
+<div class="form-group">
     {!! Form::label('description', 'Description:', ['class' => 'control-label']) !!}
     {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
 </div>

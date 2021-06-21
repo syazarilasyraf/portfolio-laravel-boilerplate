@@ -16,8 +16,16 @@ class AdminQnaController extends Controller
      */
     public function index()
     {
-        $question = Question::all();
-        return view('admin.ama_index')->with('question',$question);
+        // $question = Question::all();
+        // return view('admin.ama_index')->with('question',$question);
+
+        $question = Question::with('answers')->get();
+        return view('admin.ama_index')->with('question', $question);
+
+        // $answer = Answer::get();
+        // $question = Question::get();
+        // return view('admin.ama_index', compact('answer', 'question'));
+
 
     }
 
@@ -59,6 +67,25 @@ class AdminQnaController extends Controller
         Session::flash('flash_message', 'Submitted!');
 
         return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $question= Question::find($id);
+
+        $question->delete();
+
+        return redirect()->intended('/admin/ama');
+
+        // return redirect()->route('admin.ama_index');
+
+        // return redirect()->to('https://wmsa.me/admin/ama');
     }
 
 }

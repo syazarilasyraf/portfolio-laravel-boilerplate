@@ -26,16 +26,22 @@
   </div>
 @endif
 
-<form action="{{ route('admin.project.store') }}" method="POST" role="form" enctype="multipart/form-data">
+<form action="{{ route('admin.project.store') }}" method="POST">
+    {{-- role="form" enctype="multipart/form-data" --}}
     @csrf
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label class="control-label" for="title">Image</label>
         <input class="form-control" type="file" name="image">
-    </div>
+    </div> --}}
 
     <div class="form-group">
         <label class="control-label" for="title">Title</label>
         <input class="form-control" type="text" name="title" placeholder="Title">
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="title">Link</label>
+        <input class="form-control" type="text" name="link" placeholder="Link">
     </div>
 
     <div class="form-group">

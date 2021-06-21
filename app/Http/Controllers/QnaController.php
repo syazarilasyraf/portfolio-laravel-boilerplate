@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
-use App\Answer;
 use Session;
 
 class QnaController extends Controller
@@ -17,7 +16,7 @@ class QnaController extends Controller
      */
     public function index()
     {
-        $question = Question::all();
+        $question = \App\Question::all()->sortByDesc('id');
         return view('ama')->with('question',$question);
 
     }

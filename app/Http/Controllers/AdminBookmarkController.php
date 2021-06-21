@@ -39,7 +39,8 @@ class AdminBookmarkController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'linkimg' => 'required'
           ]);
 
         $input = $request->all();
@@ -88,7 +89,8 @@ class AdminBookmarkController extends Controller
 
             $this->validate($request, [
                 'title' => 'required',
-                'description' => 'required'
+                'description' => 'required',
+                'linkimg' => 'required'
             ]);
 
             $input = $request->all();

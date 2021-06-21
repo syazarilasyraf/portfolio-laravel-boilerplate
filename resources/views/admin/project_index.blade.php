@@ -13,8 +13,9 @@
 <hr>
 
 @foreach($project as $project)
-    <img src="{{ asset('images/' . $project->image) }}" />
+    {{-- <img src="{{ asset('images/' . $project->image) }}" /> --}}
     <h3>{{ $project->title }}</h3>
+    <p>{{ $project->link}}</p>
     <p>{{ $project->description}}</p>
 
     <p>

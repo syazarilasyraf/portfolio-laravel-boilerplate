@@ -27,7 +27,11 @@ Route::get('/bookmarks', 'BookmarkController@index');
 
 Route::get('/tools', 'ToolController@index');
 
-Route::view('/show_react','show_react');
+Route::get('/tools/windows', 'WindowController@index');
+
+Route::get('/tools/android', 'AndroidController@index');
+
+Route::get('/tools/web', 'WebController@index');
 
 Route::resource('ama', 'QnaController');
 
@@ -56,12 +60,20 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function () {
 
   Route::resource('bookmark', 'AdminBookmarkController', ['as'=>'admin']);
 
+  Route::resource('tools', 'AdminToolsController', ['as'=>'admin']);
+
+  Route::resource('windows', 'AdminWindowController', ['as'=>'admin']);
+
+  Route::resource('android', 'AdminAndroidController', ['as'=>'admin']);
+
+  Route::resource('web', 'AdminWebController', ['as'=>'admin']);
+
 //   Route::post('ama', 'AdminQnaController', ['as'=>'admin']);
 
-  Route::get('/masterdetail', 'AdminController@masterdetail');
+//   Route::get('/masterdetail', 'AdminController@masterdetail');
 
-  Route::view('/react', 'admin.react');
+//   Route::view('/react', 'admin.react');
 
-  Route::resource('tasks','AdminTasksController',['as'=>'admin']);
+//   Route::resource('tasks','AdminTasksController',['as'=>'admin']);
 
 });

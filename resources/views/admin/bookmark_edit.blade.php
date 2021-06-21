@@ -33,11 +33,21 @@
 
     @csrf
     <div class="form-group">
+        {!! Form::label('linkimg', 'Link image:', ['class' => 'control-label']) !!}
+        {!! Form::text('linkimg', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
         {!! Form::label('title', 'Title:', ['class' => 'control-label']) !!}
         {!! Form::text('title', null, ['class' => 'form-control']) !!}
     </div>
 
-    <select id="myselect">
+    <div class="form-group">
+        {!! Form::label('link', 'Link:', ['class' => 'control-label']) !!}
+        {!! Form::text('link', null, ['class' => 'form-control']) !!}
+    </div>
+
+    {{-- <select class="mt-4" id="myselect">
         <option value="">Click here to choose</option>
         <option value="Reading">Reading</option>
         <option value="Website">Website</option>
@@ -48,7 +58,7 @@
 
     <div class="form-group">
         <input id="myinput" class="form-control" type="textarea" name="description">
-    </div>
+    </div> --}}
 
     <div class="form-group">
         {!! Form::label('description', 'Description:', ['class' => 'control-label']) !!}
@@ -72,13 +82,13 @@
 
     </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 $('#myselect').on('change', function(){
   $('#myinput').val($(this).val());
 })
 
 $('#myselect').change();
-</script>
+</script> --}}
 
     @stop

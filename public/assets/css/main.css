@@ -736,3 +736,9 @@ textarea {
     background-color: #1d2124;
     border-color: #1d2124;
 }
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #1d2124;
+    background-color: #F3A418;
+    border-color: #1d2124;
+}

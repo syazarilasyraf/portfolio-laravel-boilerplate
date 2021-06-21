@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+<link rel="icon" type="image/png" href="https://i.ibb.co/JkfDdZN/wmsa.png">
+
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
 
-<title>App</title>
+<title>Portfolio Dashboard</title>
 </head>
 <body>
 
@@ -110,7 +112,7 @@
         Tools
     </a>
   </li>
-  <section >STUDY</section>
+  {{-- <section >STUDY</section>
   <li class="nav-item {{ (Request::is('admin/masterdetail', 'admin/masterdetail/*') ? 'active' : '') }}">
     <a href="/admin/masterdetail" class="nav-link">
       <i class="bi bi-cpu-fill mr-2"></i>
@@ -129,7 +131,7 @@
       <i class="bi bi-cpu-fill mr-2"></i>
       Tasks
     </a>
-  </li>
+  </li> --}}
 
 </ul>
 

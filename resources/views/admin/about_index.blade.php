@@ -13,7 +13,7 @@
     <hr>
 
     @foreach($about as $about)
-        <img src="{{ asset('images/' . $about->image) }}" />
+        {{-- <img src="{{ asset('images/' . $about->image) }}" /> --}}
         <p>{{ $about->description}}</p>
         <p>
             <a href="{{ route('admin.about.index', $about->id) }}" class="btn btn-info">View about</a>

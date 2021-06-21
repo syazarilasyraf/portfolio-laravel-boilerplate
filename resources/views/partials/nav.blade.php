@@ -1,10 +1,10 @@
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark portfolio-navbar" style="background-color:#111111;">
-    <div class="container"><a class="navbar-brand logo" href="#"><img src="assets/img/favicon-32x32.png"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand logo" href="#"><img src="https://i.ibb.co/JkfDdZN/wmsa.png"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="/" style="font-style:normal;">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="/about">About</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="/writing">Writing</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="https://blog.wmsa.tech" target="_blank">Writing</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="dropdown">

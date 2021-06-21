@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Bookmark extends Model
 {
     protected $fillable = [
+        'linkimg',
         'title',
-        'description'
+        'description',
+        'link'
     ]; //
 }

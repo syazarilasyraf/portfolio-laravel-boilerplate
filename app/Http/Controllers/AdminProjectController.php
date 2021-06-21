@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use Illuminate\Http\Request;
 use Session;
-use Image;
+// use Image;
 
 class AdminProjectController extends Controller
 {
@@ -53,32 +53,41 @@ class AdminProjectController extends Controller
 
         $request->validate ([
             'title' => 'required',
+            'link' => 'required',
             'description' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+            // 'image' => 'required|mimes:jpg,png,jpeg|max:5048',
 
         ]);
 
-            $image = $request->file('image');
-
-            $image_name = time() . '-' . $request->title . '.'
-            .$image->extension();
-
-            $destinationPath = public_path('images');
-
-            $resize_image = Image::make($image->getRealPath());
-
-            $resize_image->resize(150, 150, function($constraint)
-            {
-                $constraint->aspectRatio();
-            })->save($destinationPath . '/' . $image_name);
-
-        $input = $request->only(['title', 'description']) + ['image' => $image_name];
+        $input = $request->all();
 
         Project::create($input);
 
         Session::flash('flash_message', 'Project successfully added!');
 
         return redirect()->back();
+
+        //     $image = $request->file('image');
+
+        //     $image_name = time() . '-' . $request->title . '.'
+        //     .$image->extension();
+
+        //     $destinationPath = public_path('images');
+
+        //     $resize_image = Image::make($image->getRealPath());
+
+        //     $resize_image->resize(150, 150, function($constraint)
+        //     {
+        //         $constraint->aspectRatio();
+        //     })->save($destinationPath . '/' . $image_name);
+
+        // $input = $request->only(['title', 'description']) + ['image' => $image_name];
+
+        // Project::create($input);
+
+        // Session::flash('flash_message', 'Project successfully added!');
+
+        // return redirect()->back();
 
     }
 
@@ -121,13 +130,14 @@ class AdminProjectController extends Controller
 
         $request->validate ([
             'title' => 'required',
+            'link' => 'required',
             'description' => 'required',
 
         ]);
 
-            $input = $request->all();
+        $input = $request->all();
 
-        $project->fill($input)->save();
+        Project::create($input);
 
         Session::flash('flash_message', 'Project updated!');
 
